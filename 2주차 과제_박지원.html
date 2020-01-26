@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Manduka Pro Travel Mat</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+	<link href="https://fonts.googleapis.com/css?family=Jua&display=swap" rel="stylesheet">
+
+	<style type="text/css">
+
+		* {
+			font-family: 'Jua', sans-serif;
+		}
+
+		.my-image {
+			width: 800px;
+			height: auto;
+			padding-top: 20px;
+			margin-left: auto;
+			margin-right: auto;
+			display: block;
+		}
+		.title {
+			color: DarkMagenta;
+		}
+		.title2 {
+			color:dimgray;
+		}
+
+		.price {
+			font-size: 20px;
+		}
+		.details {
+			width: 800px;
+			margin: 0px auto 0px auto;
+			padding: 20px;
+			background-color: GhostWhite;
+		}
+		.postbox {
+			width: 800px;
+			margin: 0px auto 20px auto;
+			padding: 20px;
+			background-color:lavender;
+		}
+
+		.mybutton {
+			text-align: center;
+			padding-bottom: 20px;
+		}
+	</style>
+	<script>
+		function validateSmartPhone(phone) {
+			var regExp = /^01([0|1|6|7|8|9]?)-?([0-9]{3,4})-?([0-9]{4})$/;
+			return regExp.test(phone);
+		}
+
+		function order(){
+			let name = $('#Input1').val();
+			let count = $('#Select1').val();
+			let address = $('#Address1').val();
+			let phone = $('#Phone1').val();
+
+			if (name == ''){
+				alert('이름을 입력하세요!');
+				$('#Input1').focus();
+				return
+			} else if (count == ''){
+				alert('수량을 입력하세요!');
+				$('#Select1').focus();
+				return
+			} else if (address == ''){
+				alert('주소를 입력하세요!');
+				$('#Address1').focus();
+				return
+			} else if (phone == ''){
+				alert('전화번호를 입력하세요!');
+				$('#Phone1').focus();
+				return
+			} else if (validateSmartPhone(phone) == false) {
+				alert('전화번호 형식이 맞지 않습니다. \n ex) 010-1234-5678');
+				$('#Phone1').focus();
+				return			
+			}
+		}
+	</script>
+
+
+
+</head>
+<body>
+	<div>
+		<img class='my-image'src="https://imgix.bustle.com/uploads/image/2018/2/6/d245b6f5-b46a-4f14-a849-fe982b293fcf-the-best-yoga-mats-for-travel.jpg?w=970&h=546&fit=crop&crop=faces&auto=format&q=70">
+	</div>
+	<div class="details">
+		<h1 class="title">만두카 프로 트래블 매트</h1> <span class="price">*가격: 89,000원</span>
+		<p class="title2"> 60cm(가로)x180cm(세로)x2.5mm(두께)/ 무게 1.08kg</p>
+		<p>무게는 가볍게, 그립감은 안정되게! 이 모든것을 완성시킨 프로 트래블 요가 매트가 탄생했습니다. 기존 매트와 같은 성능에 무게는 1/3 수준으로 줄어든 이 제품으로 어디서든 쉽게 수련하세요. </p>
+	</div>
+
+	<div class="postbox">
+		<div class="form-group">
+			<label for="Input1">주문자 이름</label>
+			<input type="email" class="form-control" id="Input1">
+		</div>
+		<div class="form-group">
+			<label for="Select1">수량</label>
+			<select class="form-control" id="Select1">
+				<option selected value=""> -- 수량을 선택하세요 -- </option>
+				<option>1</option>
+				<option>2</option>
+				<option>3</option>
+			</select>
+		</div>
+		<div class="form-group">
+			<label for="Address1">주소</label>
+			<input type="text" class="form-control" id="Address1" aria-describedby="emailHelp" >
+		</div>
+		<div class="form-group">
+			<label for="Phone1">전화번호</label>
+			<input type="text" class="form-control" id="Phone1" >
+		</div>
+	</div>
+	<div class="mybutton">
+		<button onclick="order()" type="submit" class="btn btn-primary">주문하기</button>
+
+	</div>
+</body>
+</html>
